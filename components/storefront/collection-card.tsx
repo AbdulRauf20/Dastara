@@ -5,8 +5,8 @@ import type { CategoryRow } from "@/types/database";
 
 /** Local covers used until an admin uploads one in Supabase Storage. */
 const CATEGORY_COVERS: Record<string, string> = {
-  "ralli-textiles": "/categories/ralli-textiles.jpg",
-  "chaddars-shawls": "/categories/chaddars-shawls.jpg",
+  "ralli-textiles": "/hero/hero-1.jpg",
+  "chaddars-shawls": "/hero/hero-2.jpg",
   "bags-accessories": "/categories/bags-accessories.jpg",
   "home-living": "/categories/home-living.jpg",
   "art-decor": "/categories/art-decor.jpg",
