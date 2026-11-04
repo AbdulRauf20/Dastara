@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SafeImage } from "@/components/storefront/safe-image";
-import { productImageUrl } from "@/lib/storage";
+import { HeroSlideshow } from "@/components/storefront/hero-slideshow";
 import type { SiteSettingsRow } from "@/types/database";
 
 export function Hero({ settings }: { settings: SiteSettingsRow }) {
-  const heroImage = productImageUrl(settings.hero_image_path);
   return (
     <section className="relative overflow-hidden bg-brand-beige">
       <div className="container grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
@@ -32,14 +30,7 @@ export function Hero({ settings }: { settings: SiteSettingsRow }) {
           </div>
         </div>
 
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-brand-ivory md:aspect-[5/6]">
-          <SafeImage
-            src={heroImage}
-            alt="DASTARA handmade collection"
-            priority
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
+        <HeroSlideshow />
       </div>
     </section>
   );

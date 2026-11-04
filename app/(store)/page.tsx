@@ -39,7 +39,7 @@ export default async function HomePage() {
             hrefLabel="All collections"
           />
           <div className="mt-8 grid grid-cols-2 gap-5 md:grid-cols-3">
-            {categories.slice(0, 3).map((c) => (
+            {categories.map((c) => (
               <CollectionCard key={c.id} category={c} />
             ))}
           </div>

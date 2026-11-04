@@ -3,14 +3,25 @@ import { SafeImage } from "@/components/storefront/safe-image";
 import { categoryImageUrl } from "@/lib/storage";
 import type { CategoryRow } from "@/types/database";
 
+/** Local covers used until an admin uploads one in Supabase Storage. */
+const CATEGORY_COVERS: Record<string, string> = {
+  "ralli-textiles": "/categories/ralli-textiles.jpg",
+  "chaddars-shawls": "/categories/chaddars-shawls.jpg",
+  "bags-accessories": "/categories/bags-accessories.jpg",
+  "home-living": "/categories/home-living.jpg",
+  "art-decor": "/categories/art-decor.jpg",
+  "handmade-gifts": "/categories/handmade-gifts.jpg",
+};
+
 export function CollectionCard({ category }: { category: CategoryRow }) {
+  const cover = categoryImageUrl(category.image_path) ?? CATEGORY_COVERS[category.slug] ?? null;
   return (
     <Link
       href={`/shop?category=${category.slug}`}
       className="group relative block aspect-[3/4] overflow-hidden rounded-md bg-brand-ivory"
     >
       <SafeImage
-        src={categoryImageUrl(category.image_path)}
+        src={cover}
         alt={category.name}
         sizes="(max-width: 640px) 50vw, 33vw"
         className="transition-transform duration-500 group-hover:scale-105"
